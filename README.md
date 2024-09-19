@@ -1,4 +1,4 @@
-# Bayesian-Analysis
+# Difference in Number of Children By Education Level
 
 #### Results and Methods
 Given the data we will use a poisson model, with a weak gamma prior of (2,1).  The means of kids will be heavily skewed right, because there are financial, cultural, and biological limits to the number of children people have, indicating we should use a gamma distribution to model this prior.  Using a poisson model, we have more flexibility than a binomial model, and relaxed assumptions, and as we have already estiblished a relatively rare event, and it only has one parameter to create a prior for (the mean).

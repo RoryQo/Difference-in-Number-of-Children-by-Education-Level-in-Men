@@ -1,4 +1,4 @@
-# Difference in Number of Children By Education Level
+# Difference in Number of Children By Education Level for Men
 
 #### Results and Methods
 Given the data, we will use a Poisson model, with a weak gamma prior of (2,1).  The means of kids will be heavily skewed right, because there are financial, cultural, and biological limits to the number of children people have, indicating we should use a gamma distribution to model this prior.  Using a Poisson model, we have more flexibility than a binomial model and relaxed assumptions, and as we have already established a relatively rare event, and it only has one parameter to create a prior for (the mean).

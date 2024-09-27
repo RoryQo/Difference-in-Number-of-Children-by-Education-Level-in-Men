@@ -13,7 +13,7 @@ Using Poisson sampling I will obtain 5000 of $\tilde{Y_A}$ and $\tilde{Y_B}$ fro
 
 Since $\gamma_A$ and $\gamma_B$ are equal (used the same prior for both), the gamma distribution will be centered at 1.  The plot shows that the expected mean posterior difference between $\theta_A$ and $\theta_B$ decreases as our prior belief increases in strength.  Even with a very weak prior belief, there is little difference in the mean number of children, indicating there is not a strong relationship between the number of kids and obtaining a bachelor's degree or not. This is an interesting contradiction to "common knowledge" and the established stereotype of the uneducated having more children.
 
-
+ 
 
 
 

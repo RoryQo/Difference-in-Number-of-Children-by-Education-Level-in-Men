@@ -20,4 +20,3 @@ Since $\gamma_A$ and $\gamma_B$ are equal (used the same prior for both), the ga
 
 
 
-

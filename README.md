@@ -1,4 +1,4 @@
-# Difference in Number of Children By Education Level for Men 
+# Difference in Number of Children By Education Level for Men  
 
 #### Data and Variables  
 The data set contains the number of kids a man over 30 has, each row is an observed man, where it contains the number of kids and whether or not he has a bachelor's degree

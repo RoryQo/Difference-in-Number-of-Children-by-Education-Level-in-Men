@@ -19,7 +19,7 @@ The dataset includes observations of men over 30, detailing:
 - **θ_B**: Average number of children for men without a bachelor's degree.
 
 ## Results and Methods
-To analyze the data, a Poisson model with a weak gamma prior (γ) parameterized as Gamma(2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.
+To analyze the data, a Poisson model with a weak gamma (γ) prior parameterized as Gamma(2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.
 
 Using Poisson sampling, 5,000 samples of \(Y_A\) and \(Y_B\) are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
 

@@ -15,15 +15,15 @@ The dataset includes observations of men over 30, detailing:
 - Whether he possesses a bachelor's degree.
 
 ### Variables
-- **θ_A**: Average number of children for men with a bachelor's degree.
-- **θ_B**: Average number of children for men without a bachelor's degree.
+- ** $\theta_A$**: Average number of children for men with a bachelor's degree.
+- ** $\theta_B$**: Average number of children for men without a bachelor's degree.
 
 ## Results and Methods
-To analyze the data, a Poisson model with a weak gamma (γ) prior parameterized as Gamma(2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.
+To analyze the data, a Poisson model with a weak gamma($\gamma$) prior (2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.
 
-Using Poisson sampling, 5,000 samples of \(Y_A\) and \(Y_B\) are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
+Using Poisson sampling, 5,000 samples of  $\tilde{Y_A}$ and $\tilde{Y_B}$ are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
 
-The analysis indicates that since the prior beliefs (γ_A and γ_B) are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between θ_B and θ_A decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived. This finding challenges the stereotype that less educated individuals tend to have more children.
+The analysis indicates that since the prior beliefs $\gamma_A$ and $\gamma_B$ are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between  $\theta_A$ and  $\theta_B$ decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived. This finding challenges the stereotype that less educated individuals tend to have more children.
 
 ## Conclusion
 The results of this analysis provide insight into the complex dynamics between education and family size. Despite expectations, the data suggests that having a bachelor's degree does not significantly correlate with the number of children a man has. This study encourages further exploration into the underlying factors influencing family size and education.

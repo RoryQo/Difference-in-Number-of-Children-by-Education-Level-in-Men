@@ -15,8 +15,8 @@ The dataset includes observations of men over 30, detailing:
 - Whether he possesses a bachelor's degree.
 
 ### Variables
-- ** $\theta_A$**: Average number of children for men with a bachelor's degree.
-- ** $\theta_B$**: Average number of children for men without a bachelor's degree.
+- ` $\theta_A$:` Average number of children for men with a bachelor's degree.
+- ` $\theta_B$:` Average number of children for men without a bachelor's degree.
 
 ## Results and Methods
 To analyze the data, a Poisson model with a weak gamma($\gamma$) prior (2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.

@@ -1,22 +1,29 @@
-# Difference in Number of Children By Education Level for Men   
+# Difference in Number of Children By Education Level for Men
 
-#### Data and Variables  
-The data set contains the number of kids a man over 30 has, each row is an observed man, where it contains the number of kids and whether or not he has a bachelor's degree
+## Table of Contents
+- [Overview](#overview)
+- [Data and Variables](#data-and-variables)
+- [Results and Methods](#results-and-methods)
+- [Conclusion](#conclusion)
 
-+ $\theta_A$ is the average number of kids men over 30 with a Bachelor's degree 
-+ $\theta_B$ is the average number of kids men over 30 with a Bachelor's degree 
+## Overview
+This project investigates the relationship between education level and the number of children for men over 30 years old. It aims to determine if there is a significant difference in the average number of children between men with and without a bachelor's degree.
 
-#### Results and Methods 
-Given the data, we will use a Poisson model, with a weak gamma($\gamma$) prior (2,1).  The means of kids will be heavily skewed right, because there are financial, cultural, and biological limits to the number of children people have, indicating we should use a gamma distribution to model this prior.  Using a Poisson model, we have more flexibility than a binomial model and relaxed assumptions, and as we have already established a relatively rare event, and it only has one parameter to create a prior for (the mean).
+## Data and Variables
+The dataset includes observations of men over 30, detailing:
+- The number of children each man has.
+- Whether he possesses a bachelor's degree.
 
-Using Poisson sampling I will obtain 5000 of $\tilde{Y_A}$ and $\tilde{Y_B}$ from the posterior distribution of the two samples.  Then use Monte Carlo approximations and plot the posterior predictive distributions.
+### Variables
+- **θ_A**: Average number of children for men with a bachelor's degree.
+- **θ_B**: Average number of children for men without a bachelor's degree.
 
-Since $\gamma_A$ and $\gamma_B$ are equal (used the same prior for both), the gamma distribution will be centered at 1.  The plot shows that the expected mean posterior difference between $\theta_A$ and $\theta_B$ decreases as our prior belief increases in strength.  Even with a very weak prior belief, there is little difference in the mean number of children, indicating there is not a strong relationship between the number of kids and obtaining a bachelor's degree or not. This is an interesting contradiction to "common knowledge" and the established stereotype of the uneducated having more children.
+## Results and Methods
+To analyze the data, a Poisson model with a weak gamma prior (γ) parameterized as Gamma(2,1) is utilized. This choice is made due to the right-skewed nature of the number of children, influenced by various social, economic, and biological factors.
 
- 
+Using Poisson sampling, 5,000 samples of \(Y_A\) and \(Y_B\) are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
 
+The analysis indicates that since the prior beliefs (γ_A and γ_B) are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between θ_B and θ_A decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived. This finding challenges the stereotype that less educated individuals tend to have more children.
 
-
-
-
-
+## Conclusion
+The results of this analysis provide insight into the complex dynamics between education and family size. Despite expectations, the data suggests that having a bachelor's degree does not significantly correlate with the number of children a man has. This study encourages further exploration into the underlying factors influencing family size and education.

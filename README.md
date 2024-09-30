@@ -1,4 +1,4 @@
-# Difference in Number of Children By Education Level for Men
+# Difference in Number of Children By Education Level for Men 
  
 ## Table of Contents
 - [Overview](#overview)

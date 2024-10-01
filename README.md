@@ -3,7 +3,7 @@
 ### Table of Contents
 - [Overview](#overview)
 - [Data and Variables](#data-and-variables) 
-- [Results and Methods](#results-and-methods)
+- [Results and Methods](#results-and-methods) 
 - [Conclusion](#conclusion)  
 
 ### Overview

@@ -6,7 +6,7 @@
 - [Results and Methods](#results-and-methods) 
 - [Conclusion](#conclusion)  
 
-### Overview
+### Overview 
 This project investigates the relationship between education level and the number of children for men over 30 years old. It aims to determine if there is a significant difference in the average number of children between men with and without a bachelor's degree.
  
 ### Data and Variables

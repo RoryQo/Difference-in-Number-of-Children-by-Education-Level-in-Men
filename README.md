@@ -95,7 +95,7 @@ To assess the robustness of our findings, we perform a sensitivity analysis by v
   - Number of posterior samples: $S = 5000$  
   - Gamma prior values: $ab_{\gamma} = \{8, 16, 32, 64, 128\}$
   
-<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/graph2.jpg" alt="Rat Lab Graph" style="width: 450px;" />
+<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/Figures/graph2.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 
 The analysis indicates that since the prior beliefs $\gamma_A$ and $\gamma_B$ are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between  $\theta_A$ and  $\theta_B$ decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived.
 ### 2. Model Assumptions and Fit
@@ -146,8 +146,8 @@ for (s in 1:1000) {
 ```
 
 <div>
-<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/degreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
-<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/nodegreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
+<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/Figures/degreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
+<img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/Figures/nodegreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 </div>
 
 

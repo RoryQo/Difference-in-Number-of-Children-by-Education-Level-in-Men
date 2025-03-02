@@ -44,6 +44,26 @@ The prior for **θ** follows a **Gamma(a, b) distribution**:
 ```
 Using Poisson sampling, 5,000 samples of  $\tilde{Y_A}$ and $\tilde{Y_B}$ are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
 
+#### **Credible Interval for $\theta_B - \theta_A$**
+
+```
+theta_samples_a <- rgamma(5000, 2 + sum(Y_a), 1 + length(Y_a))
+theta_samples_b <- rgamma(5000, 2 + sum(Y_b), 1 + length(Y_b))
+
+theta_diff_samples <- theta_samples_b - theta_samples_a
+quantile(theta_diff_samples, probs = c(0.025, 0.5, 0.975))  # 95% credible interval
+```
+
+A **95% credible interval** for the difference in average number of children between groups is:
+
+\[
+(0.15, 0.74)
+\]
+
+Since this interval does not include zero, we conclude that men without a bachelor's degree tend to have more children than those with a degree. However, the effect size is modest.
+
+#### Sensitivity
+
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/graph2.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 
 ### 2. Model Assumption Checks
@@ -67,7 +87,7 @@ Results:
 - **For men with a degree:** Dispersion = **1.28**  
 - **For men without a degree:** Dispersion = **1.37**  
 
-Since both values are slightly greater than 1, we detect **mild overdispersion**, meaning additional unobserved factors might influence family size.
+Since both values are slightly greater than 1, we detect **mild overdispersion**, meaning that factors beyond education level—such as socioeconomic status, cultural norms, or relationship status—may also influence family size. Future research could explore alternative models, such as a **negative binomial regression**, to account for this additional variation. However the mild dipersion is not enough to discredit the our model or anyfindings.
 
 #### **2.2 Histogram of Monte Carlo t-Statistics**
 To further check if the model appropriately fits the data, we simulate **Monte Carlo samples** of the t-statistic:
@@ -93,31 +113,6 @@ To assess the model fit, we examine:
 - **QQ plot of residuals**: Assesses normality of residuals.
 
 The residual plots do not indicate severe violations of model assumptions, though some mild dispersion suggests additional variance not captured by a simple Poisson model.
-
----
-
-## Interpretation of Results  
-
-### **Credible Interval for $\theta_B - \theta_A$**
-
-```
-theta_samples_a <- rgamma(5000, 2 + sum(Y_a), 1 + length(Y_a))
-theta_samples_b <- rgamma(5000, 2 + sum(Y_b), 1 + length(Y_b))
-
-theta_diff_samples <- theta_samples_b - theta_samples_a
-quantile(theta_diff_samples, probs = c(0.025, 0.5, 0.975))  # 95% credible interval
-```
-
-A **95% credible interval** for the difference in average number of children between groups is:
-
-\[
-(0.15, 0.74)
-\]
-
-Since this interval does not include zero, we conclude that men without a bachelor's degree tend to have more children than those with a degree. However, the effect size is modest.
-
-### **Implications of Overdispersion**
-The mild overdispersion suggests that factors beyond education level—such as socioeconomic status, cultural norms, or relationship status—may also influence family size. Future research could explore alternative models, such as a **negative binomial regression**, to account for this additional variation.
 
 ---
 

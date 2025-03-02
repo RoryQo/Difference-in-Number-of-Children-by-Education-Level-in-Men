@@ -25,7 +25,7 @@ The dataset includes observations of men over 30, detailing:
 
 ### 1. Bayesian Poisson Model
 
-Since the number of children is right-skewed due to external social, economic, and biological factors, we analyze the data with a **Poisson distribution** due to its suitability for count data. A **gamma prior** is chosen due to its conjugacy with the Poisson likelihood.
+Since the number of children is right-skewed due to external social, economic, and biological factors, we analyze the data with a **Poisson distribution** due to its suitability for count data. A weak **gamma prior** is chosen due to its conjugacy with the Poisson likelihood.
 
 The model is defined as follows:
 
@@ -43,6 +43,8 @@ The prior for **θ** follows a **Gamma(a, b) distribution**:
 \theta_A, \theta_B \sim \text{Gamma}(2,1)
 ```
 Using Poisson sampling, 5,000 samples of  $\tilde{Y_A}$ and $\tilde{Y_B}$ are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
+
+
 
 #### **Credible Interval for $\theta_B - \theta_A$**
 
@@ -64,8 +66,16 @@ Since this interval does not include zero, we conclude that men without a bachel
 
 #### Sensitivity
 
+To assess the robustness of our findings, we perform a sensitivity analysis by varying the **Gamma prior parameters**:  
+
+- **Hyperparameters:**  
+  - $a_{\theta} = 2$, $b_{\theta} = 1$  
+  - Number of posterior samples: $S = 5000$  
+  - Gamma prior values: $ab_{\gamma} = \{8, 16, 32, 64, 128\}$
+  
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/graph2.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 
+The analysis indicates that since the prior beliefs $\gamma_A$ and $\gamma_B$ are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between  $\theta_A$ and  $\theta_B$ decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived.
 ### 2. Model Assumption Checks
 
 #### **2.1 Overdispersion Check**
@@ -96,7 +106,21 @@ To further check if the model appropriately fits the data, we simulate **Monte C
 t = \frac{\bar{Y}}{\text{SD}(Y)}
 ```
 
-Histograms of the simulated t-statistics for both groups are plotted alongside the observed t-statistic to ensure that the distribution of simulated values aligns with the observed data.
+Histograms of the simulated t-statistics for both groups are plotted alongside the observed t-statistic (blue line) to ensure that the distribution of simulated values aligns with the observed data. Since our observed statistic is close to the mode of our expectation, it appears that we have an expected and reliable t-statistic estimate.
+
+```
+# Run the Monte Carlo simulation (1000 samples)
+for (s in 1:1000) {
+  # Sample theta from Gamma distribution
+  theta1 <- rgamma(1, a + sum_a, a2 + n_a)
+  
+  # Generate random sample of 10 from Poisson distribution with parameter theta1
+  y1_mc <- rpois(10, theta1)
+  
+  # Calculate the t-statistic (mean/sd) for the sample
+  t_mc <- c(t_mc, mean(y1_mc) / sd(y1_mc))
+}
+```
 
 <div>
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/degreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
@@ -114,7 +138,10 @@ To assess the model fit, we examine:
 
 The residual plots do not indicate severe violations of model assumptions, though some mild dispersion suggests additional variance not captured by a simple Poisson model.
 
+
+
 ---
 
 ## Conclusion
-This study finds that education level has a modest association with the number of children men have, with those without a bachelor's degree tending to have slightly more children on average. However, the effect is not as strong as commonly assumed, and mild overdispersion suggests that additional factors contribute to family size differences. Further research incorporating socioeconomic and cultural variables may provide a more comprehensive understanding of the relationship between education and fertility.
+This study finds that education level has a modest association with the number of children men have, with those without a bachelor's degree tending to have slightly more children on average. However, the effect is not as strong as commonly assumed, and mild overdispersion suggests that additional factors contribute to family size differences. This finding challenges the stereotype that less educated individuals tend to have more children.
+Further research incorporating socioeconomic and cultural variables may provide a more comprehensive understanding of the relationship between education and fertility.

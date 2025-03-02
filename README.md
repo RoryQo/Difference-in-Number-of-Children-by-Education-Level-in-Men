@@ -1,11 +1,32 @@
 # <h1 align="center"> Difference in Number of Children By Education Level for Men    
 
-### Table of Contents    
-- [Overview](#overview)     
-- [Data and Variables](#data-and-variables)  
-- [Methodology](#methodology)     
-- [Interpretation of Results](#interpretation-of-results)  
-- [Conclusion](#conclusion)   
+<table align="center">
+  <tr>
+    <td colspan="2" align="center" style="background-color: white; color: black;"><strong>Table of Contents</strong></td>
+  </tr>
+  <tr>
+    <td style="background-color: white; color: black; padding: 10px;">1. <a href="#overview" style="color: black;">Overview</a></td>
+    <td style="background-color: white; color: black; padding: 10px;">2. <a href="#data-and-variables" style="color: black;">Data and Variables</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="background-color: white; color: black; padding: 10px;">3. <a href="#methodology" style="color: black;">Methodology</a><br>
+      &nbsp;&nbsp;&nbsp;- <a href="#1-bayesian-poisson-model" style="color: black;">Bayesian Poisson Modeling</a><br>
+      &nbsp;&nbsp;&nbsp;- <a href="#2-model-assumptions-and-fit" style="color: black;">Model Assumptions and Fit</a>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="background-color: gray; color: black; padding: 10px; text-align: center;">
+      6. <a href="#conclusion" style="color: black;">Conclusion</a>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
 
 ## Overview 
 This project investigates the relationship between education level and the number of children for men over 30 years old. It aims to determine if there is a significant difference in the average number of children between men with and without a bachelor's degree.
@@ -19,13 +40,13 @@ The dataset includes observations of men over 30, detailing:
 - **$\theta_A$**: Average number of children for men with a bachelor's degree.
 - **$\theta_B$**: Average number of children for men without a bachelor's degree.
 
----
+
 
 ## Methodology
 
 ### 1. Bayesian Poisson Model
 
-Since the number of children is right-skewed due to external social, economic, and biological factors, we analyze the data with a **Poisson distribution** due to its suitability for count data. A weak **gamma prior** is chosen due to its conjugacy with the Poisson likelihood.
+Since our data has limited observations, and the number of children is right-skewed due to external social, economic, and biological factors, we analyze the data with a **Poisson distribution** due to its suitability for count data. A weak **gamma prior** is chosen due to its conjugacy with the Poisson likelihood.
 
 The model is defined as follows:
 
@@ -42,6 +63,7 @@ The prior for **θ** follows a **Gamma(a, b) distribution**:
 ```math
 \theta_A, \theta_B \sim \text{Gamma}(2,1)
 ```
+
 Using Poisson sampling, 5,000 samples of  $\tilde{Y_A}$ and $\tilde{Y_B}$ are drawn from the posterior distributions for both groups. Monte Carlo approximations are applied to visualize the posterior predictive distributions.
 
 
@@ -76,7 +98,7 @@ To assess the robustness of our findings, we perform a sensitivity analysis by v
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/graph2.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 
 The analysis indicates that since the prior beliefs $\gamma_A$ and $\gamma_B$ are equal, the gamma distribution centers around 1. The plots reveal that as our prior belief strengthens, the mean posterior difference between  $\theta_A$ and  $\theta_B$ decreases. Even with a weak prior, the results show minimal difference in the average number of children, suggesting that the relationship between educational attainment and number of children is not as strong as commonly perceived.
-### 2. Model Assumption Checks
+### 2. Model Assumptions and Fit
 
 #### **2.1 Overdispersion Check**
 A key assumption of the Poisson model is that the mean and variance of the data should be approximately equal. Overdispersion occurs when the variance significantly exceeds the mean, which may indicate the need for an alternative model (e.g., **negative binomial regression**).  
@@ -120,27 +142,14 @@ for (s in 1:1000) {
   # Calculate the t-statistic (mean/sd) for the sample
   t_mc <- c(t_mc, mean(y1_mc) / sd(y1_mc))
 }
+
 ```
 
 <div>
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/degreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 <img src="https://github.com/RoryQo/Difference-in-Number-of-Children-by-Education-Level-in-Men/raw/main/nodegreefit.jpg" alt="Rat Lab Graph" style="width: 450px;" />
 </div>
----
 
-### 3. Model Diagnostics  
-
-#### **3.1 Residual Analysis**
-To assess the model fit, we examine:
-- **Pearson residuals vs. fitted values**: Checks for patterns that might indicate poor fit.
-- **Deviance residuals vs. fitted values**: Measures goodness of fit.
-- **QQ plot of residuals**: Assesses normality of residuals.
-
-The residual plots do not indicate severe violations of model assumptions, though some mild dispersion suggests additional variance not captured by a simple Poisson model.
-
-
-
----
 
 ## Conclusion
 This study finds that education level has a modest association with the number of children men have, with those without a bachelor's degree tending to have slightly more children on average. However, the effect is not as strong as commonly assumed, and mild overdispersion suggests that additional factors contribute to family size differences. This finding challenges the stereotype that less educated individuals tend to have more children.

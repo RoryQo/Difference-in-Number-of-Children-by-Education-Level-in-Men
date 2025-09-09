@@ -1,7 +1,7 @@
 # <h1 align="center"> Difference in Number of Children By Education Level for Men    
  
 <table align="center"> 
-  <tr>
+  <tr> 
     <td colspan="2" align="center" style="background-color: white; color: black;"><strong>Table of Contents</strong></td>
   </tr>
   <tr>
